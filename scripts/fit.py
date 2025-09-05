@@ -16,13 +16,15 @@ def fit_model():
     with open("params.yaml", "r", encoding="utf-8") as f:
         params = yaml.safe_load(f)
 
+    id_col = params["id_col"]
     index_col = params["index_col"]
     target_col = params["target_col"]
     one_hot_drop = params["one_hot_drop"]
 
     # 2) Загрузите результат предыдущего шага: data/initial_data.csv
     data_path = "data/initial_data.csv"
-    data = pd.read_csv(data_path, index_col=index_col)
+    data = pd.read_csv(data_path)
+    data = data.drop(columns=[id_col, index_col])
 
     # 3) Реализуйте основную логику шага с использованием гиперпараметров
     # Разделим на X/y

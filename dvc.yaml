@@ -14,6 +14,7 @@ stages:
       - data/initial_data.csv
       - scripts/fit.py
     params:
+      - id_col
       - index_col
       - target_col
       - one_hot_drop
@@ -25,6 +26,7 @@ stages:
       - models/fitted_model.pkl
       - scripts/evaluate.py
     params:
+      - id_col
       - index_col
       - target_col
       - n_splits

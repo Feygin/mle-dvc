@@ -13,6 +13,7 @@ def evaluate_model():
     with open("params.yaml", "r", encoding="utf-8") as f:
         params = yaml.safe_load(f)
 
+    id_col = params["id_col"]
     index_col = params["index_col"]
     target_col = params["target_col"]
     n_splits = params["n_splits"]
@@ -21,6 +22,7 @@ def evaluate_model():
 
     # 2) загружаем данные и модель
     data = pd.read_csv("data/initial_data.csv")
+    data = data.drop(columns=[id_col, index_col])
     pipeline = joblib.load("models/fitted_model.pkl")
 
     # 3) кросс-валидация
