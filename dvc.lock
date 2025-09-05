@@ -5,20 +5,16 @@ stages:
     deps:
     - path: scripts/data.py
       hash: md5
-      md5: 0cb91ccf334d3a8c724bcfb33d59cc59
+      md5: 691fe2ffb9a9473f6d6c869c5c728b09
       size: 1495
     params:
       params.yaml:
-        index_col: id
+        index_col: customer_id
     outs:
     - path: data/initial_data.csv
       hash: md5
-      md5: 0f93f9526a802bf06cec5c51a1f32374
-      size: 865325
-      cloud:
-        mle_storage:
-          etag: 0f93f9526a802bf06cec5c51a1f32374
-          version_id: 00063DD34D23D104
+      md5: 8fba05f61d4384743b6d99f43203b3b7
+      size: 899316
   fit_model:
     cmd: python scripts/fit.py
     deps:
